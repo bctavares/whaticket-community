@@ -17,7 +17,6 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
 
 ENV PUBLIC_HTML=/var/www/public/
 
-COPY .docker/nginx /etc/nginx/
 COPY --from=build-deps /usr/src/app/build ${PUBLIC_HTML}
 EXPOSE 80
 
