@@ -15,9 +15,9 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-ENV PUBLIC_HTML=/var/www/public/
+ENV public_html=/var/www/public/
 
-COPY --from=build-deps /usr/src/app/build ${PUBLIC_HTML}
+COPY --from=build-deps /usr/src/app/build ${public_html}
 EXPOSE 80
 
 COPY .docker/add-env-vars.sh /docker-entrypoint.d/01-add-env-vars.sh
